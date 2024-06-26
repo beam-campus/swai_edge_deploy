@@ -1,0 +1,179 @@
+networks:
+  
+  log_net:
+    driver: bridge
+    name: log_net
+
+  back_net:
+    driver: bridge
+    name: back_net
+        
+
+volumes:
+
+  nginx_conf_ssl:
+  letsencrypt_certs:
+  certbot_acme_challenge:
+
+  postgres-data:
+    driver: local
+    driver_opts: 
+      type: none
+      device: /volume/postgres/data
+      o: bind    
+  
+
+
+services:
+
+  cli:
+    build: ./cli
+    image: evgeniy-khyst/letsencrypt-docker-compose-cli
+    user: ${CURRENT_USER}
+    container_name: cli
+    group_add:
+      - ${DOCKER_GROUP}
+    environment:
+      - COMPOSE_PROJECT_NAME
+      - CURRENT_USER
+      - DOCKER_GROUP
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./:/workdir
+    profiles:
+      - config
+    networks:
+       - log_net
+       - back_net
+
+
+
+  nginx:
+    build: ./nginx
+    image: evgeniy-khyst/nginx
+    container_name: nginx
+    environment:
+      - DRY_RUN
+    volumes:
+      - ./config.json:/letsencrypt-docker-compose/config.json:ro
+      - ./nginx-conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx-conf/conf.d:/etc/nginx/conf.d:ro
+      - ./html:/var/www/html:ro
+      - nginx_conf_ssl:/etc/nginx/ssl
+      - letsencrypt_certs:/etc/letsencrypt
+      - certbot_acme_challenge:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "nginx", "80"]
+      interval: 30s
+      timeout: 30s
+      start_period: 30s
+      retries: 10
+    restart: unless-stopped
+    networks:
+       - log_net
+       - back_net
+
+
+
+
+  certbot:
+    build: ./certbot
+    image: evgeniy-khyst/certbot
+    container_name: certbot
+    environment:
+      - DRY_RUN
+    volumes:
+      - ./config.json:/letsencrypt-docker-compose/config.json:ro
+      - letsencrypt_certs:/etc/letsencrypt
+      - certbot_acme_challenge:/var/www/certbot
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'test -n "$$(ls -A /etc/letsencrypt/live/)" || test "$$DRY_RUN" == "true" || exit 1',
+        ]
+      interval: 30s
+      timeout: 30s
+      start_period: 30s
+      retries: 5
+    depends_on:
+      nginx:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+       - log_net
+       - back_net
+
+
+
+  cron:
+    build: ./cron
+    image: evgeniy-khyst/cron
+    container_name: cron
+    environment:
+      - COMPOSE_PROJECT_NAME
+      - DRY_RUN
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./:/workdir:ro
+    depends_on:
+      certbot:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+       - log_net
+       - back_net
+
+
+
+  # Replace with your backend image or remove
+  logatron:    
+    image: beamcampus/logatron_web:latest
+    container_name: logatron
+    ports:
+      - "4000:4000"    
+    depends_on:
+      - postgres        
+      - nginx        
+    restart: always
+    env_file:
+      - ./logatron/app.env
+    networks:
+       - back_net
+       - log_net
+
+
+  watchtower-svc:
+    image: v2tec/watchtower
+    container_name: watchtower
+    restart: always    
+    command: --interval 30
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+       - back_net
+       - log_net
+
+
+  postgres:
+    image: local/postgres
+    hostname: postgres
+    container_name: postgres
+    build:
+      context: ./postgresql    
+    restart: always
+    environment:
+      - POSTGRES_DB=${LOGATRON_DB}
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgres/data
+    networks:
+       - back_net
+
+    

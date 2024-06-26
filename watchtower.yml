@@ -1,0 +1,13 @@
+version: '3.5'
+
+
+services:
+
+  watchtower-svc:
+    image: v2tec/watchtower
+    container_name: watchtower
+    restart: always    
+    command: --interval 30
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
