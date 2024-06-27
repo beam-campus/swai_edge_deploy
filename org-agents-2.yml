@@ -1,0 +1,108 @@
+version: "3.5"
+
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  na_ifas_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: eu_ifas_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=na-ifas-d-1
+      - LOGATRON_SCAPE_NAME=EUIFAS NA Dairy 1
+      - LOGATRON_CONTINENTS=North America
+      - LOGATRON_MAX_COUNTRIES=2
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=30
+      - LOGATRON_INIT_ANIMALS_PER_FARM=10
+
+  eu_ifas_2:
+    image: beamcampus/logatron_edge:latest
+    container_name: eu_ifas_2
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=ifas-d-2
+      - LOGATRON_SCAPE_NAME=EUIFAS EU Dairy 2
+      - LOGATRON_CONTINENTS=Europe
+      - LOGATRON_MAX_COUNTRIES=4
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=20
+      - LOGATRON_INIT_ANIMALS_PER_FARM=10
+
+  as_jj_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: as_jj_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=asaf-jj-d-1
+      - LOGATRON_SCAPE_NAME=JASON&JASON ASE Dairy 1
+      - LOGATRON_CONTINENTS=Europe,Africa,Asia
+      - LOGATRON_MAX_COUNTRIES=23
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=20
+      - LOGATRON_INIT_ANIMALS_PER_FARM=10
+
+
+  sa_uni_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: sa_uni_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=asa-ev-d-1
+      - LOGATRON_SCAPE_NAME=ENEVILUR ASA Dairy 1
+      - LOGATRON_CONTINENTS=Asia,South America
+      - LOGATRON_MAX_COUNTRIES=3
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=4
+      - LOGATRON_INIT_ANIMALS_PER_FARM=7
+
+
+  afas_msf_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: afas_msf_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=enev-d-1
+      - LOGATRON_SCAPE_NAME=ANIMEDS AFAS Dairy 1
+      - LOGATRON_CONTINENTS=Asia,South America,Africa
+      - LOGATRON_MAX_COUNTRIES=3
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=4
+      - LOGATRON_INIT_ANIMALS_PER_FARM=7
+
+
+
+
+  saf_pactor_gimble_2:
+    image: beamcampus/logatron_edge:latest
+    container_name: saf_pactor_gimble_2
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=saf-pg-d-1
+      - LOGATRON_SCAPE_NAME=PACTOR&FIMBLE SAF Dairy 1
+      - LOGATRON_CONTINENTS=Europe,Africa,South America
+      - LOGATRON_MAX_COUNTRIES=3
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=4
+      - LOGATRON_INIT_ANIMALS_PER_FARM=7
+
+

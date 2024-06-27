@@ -1,0 +1,58 @@
+version: "3.5"
+
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  na_ifas_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: na_ifas_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=na-ifas-d-1
+      - LOGATRON_SCAPE_NAME=EUIFAS NA Dairy 1
+      - LOGATRON_CONTINENTS=North America, South America
+      - LOGATRON_MAX_COUNTRIES=4
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=2
+      - LOGATRON_INIT_ANIMALS_PER_FARM=2
+
+  as_ifas_2:
+    image: beamcampus/logatron_edge:latest
+    container_name: as_ifas_2
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=ifas-d-2
+      - LOGATRON_SCAPE_NAME=EUIFAS EU Dairy 2
+      - LOGATRON_CONTINENTS=Asia
+      - LOGATRON_MAX_COUNTRIES=4
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=2
+      - LOGATRON_INIT_ANIMALS_PER_FARM=2
+
+  as_vb_1:
+    image: beamcampus/logatron_edge:latest
+    container_name: as_vb_1
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - LOGATRON_EDGE_API_KEY
+      - LOGATRON_SCAPE_ID=asaf-vb-d-1
+      - LOGATRON_SCAPE_NAME=GSG VEN BROO ASE Dairy 1
+      - LOGATRON_CONTINENTS=Africa,Asia
+      - LOGATRON_MAX_COUNTRIES=4
+      - LOGATRON_MAX_FARMS_PER_COUNTRY=2
+      - LOGATRON_INIT_ANIMALS_PER_FARM=2
+
+
