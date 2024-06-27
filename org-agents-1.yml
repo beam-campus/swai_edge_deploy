@@ -10,7 +10,7 @@ networks:
 services:
 
   eu_ifas_1:
-    image: beamcampus/swai_edge:latest
+    image: beamcampus/swarm_wars_edge:latest
     container_name: eu_ifas_1
     restart: always
     networks:
@@ -25,7 +25,7 @@ services:
       - SWAI_INIT_ANIMALS_PER_FARM=2
 
   eu_ifas_2:
-    image: beamcampus/swai_edge:latest
+    image: beamcampus/swarm_wars_edge:latest
     container_name: eu_ifas_2
     restart: always
     networks:
@@ -40,7 +40,7 @@ services:
       - SWAI_INIT_ANIMALS_PER_FARM=2
 
   eu_mansonta_1:
-    image: beamcampus/swai_edge:latest
+    image: beamcampus/swarm_wars_edge:latest
     container_name: eu_mansonta_1
     restart: always
     networks:
@@ -56,7 +56,7 @@ services:
 
 
   eu_enevilur_1:
-    image: beamcampus/swai_edge:latest
+    image: beamcampus/swarm_wars_edge:latest
     container_name: eu_enevilur_1
     restart: always
     networks:
@@ -72,7 +72,7 @@ services:
 
 
   eu_pactor_gimble_1:
-    image: beamcampus/swai_edge:latest
+    image: beamcampus/swarm_wars_edge:latest
     container_name: eu_pactor_gimble_1
     restart: always
     networks:
