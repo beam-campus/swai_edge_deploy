@@ -75,6 +75,17 @@ services:
     - SWAI_EDGE_LAT=-4.0383
     - SWAI_EDGE_LON=21.7587
 
+  aco-madagascar:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-madagascar
+    restart: always
+    networks:
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-madagascar"
+    - SWAI_EDGE_LAT=-18.7669
+    - SWAI_EDGE_LON=46.8691
+
 
   aco-east-africa:
     image: beamcampus/swai_aco:latest
