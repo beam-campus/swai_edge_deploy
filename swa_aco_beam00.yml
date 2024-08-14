@@ -40,9 +40,9 @@ services:
     environment:
     - SWAI_EDGE_API_KEY="aco-turkey"
     - SWAI_EDGE_LAT=38.9637
-    - SWAI_EDGE_LON=35.2433  
+    - SWAI_EDGE_LON=35.2433
 
-  
+
   aco-israel:
     image: beamcampus/swai_aco:latest
     container_name: aco-israel
@@ -53,8 +53,8 @@ services:
     - SWAI_EDGE_API_KEY="aco-israel"
     - SWAI_EDGE_LAT=31.0461
     - SWAI_EDGE_LON=34.8516
-  
-  
+
+
   aco-iceland:
     image: beamcampus/swai_aco:latest
     container_name: aco-iceland
@@ -77,7 +77,7 @@ services:
     - SWAI_EDGE_API_KEY="aco-poland"
     - SWAI_EDGE_LAT=51.9194
     - SWAI_EDGE_LON=19.1451
-  
+
   aco-spain-barcelona:
     image: beamcampus/swai_aco:latest
     container_name: aco-spain-barcelona
@@ -100,17 +100,17 @@ services:
     - SWAI_EDGE_LAT=38.7223
     - SWAI_EDGE_LON=9.1393
 
-  
+
   aco-usa-new-york:
     image: beamcampus/swai_aco:latest
     container_name: aco-usa-new-york
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-usa-new-york"
-      - SWAI_EDGE_LAT=40.7128
-      - SWAI_EDGE_LON=-74.0060
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-usa-new-york"
+    - SWAI_EDGE_LAT=40.7128
+    - SWAI_EDGE_LON=-74.0060
 
 
   aco-canada-ontario:
@@ -118,13 +118,13 @@ services:
     container_name: aco-canada-ontario
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-canada-ontario"
-      - SWAI_EDGE_LAT=51.2538
-      - SWAI_EDGE_LON=-85.3232
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-canada-ontario"
+    - SWAI_EDGE_LAT=51.2538
+    - SWAI_EDGE_LON=-85.3232
 
-  
+
   aco-netherlands:
     image: beamcampus/swai_aco:latest
     container_name: aco-netherlands
@@ -136,4 +136,36 @@ services:
     - SWAI_EDGE_LAT=52.1326
     - SWAI_EDGE_LON=5.2913
 
+  aco-west-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-west-europe
+    restart: always
+    networks:
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-west-europe"
+    - SWAI_EDGE_LAT=48.8566
+    - SWAI_EDGE_LON=2.3522
+
+  aco-central-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-central-europe
+    restart: always
+    networks:
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-central-europe"
+    - SWAI_EDGE_LAT=52.5200
+    - SWAI_EDGE_LON=13.4050
+
+  aco-north-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-north-europe
+    restart: always
+    networks:
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-north-europe"
+    - SWAI_EDGE_LAT=59.3293
+    - SWAI_EDGE_LON=18.0686
 
