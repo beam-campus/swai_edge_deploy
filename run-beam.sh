@@ -3,8 +3,8 @@
 # nordvpn connect "$1"
 
 docker compose -f watchtower.yml \
-               -f swai_aco_africa.yml down
+               -f "$1" down  
 
 
 docker compose -f watchtower.yml \
-               -f swai_aco_africa.yml up --build
+               -f "$1"  up --build "$2" 
