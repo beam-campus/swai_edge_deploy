@@ -1,0 +1,61 @@
+version: "3.5"
+
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  aco-south-africa:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-south-africa
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="swai-aco-south-africa"
+      - SWAI_EDGE_LAT=-30.5595
+      - SWAI_EDGE_LON=22.9375
+
+  aco-north-africa:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-north-africa
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-north-africa"
+      - SWAI_EDGE_LAT=26.3351
+      - SWAI_EDGE_LON=17.2283
+
+  aco-west-africa:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-west-africa
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-west-africa"
+      - SWAI_EDGE_LAT=9.082
+      - SWAI_EDGE_LON=8.6753
+
+
+  aco-east-africa:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-east-africa
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-east-africa"
+      - SWAI_EDGE_LAT=-1.2921
+      - SWAI_EDGE_LON=36.8219
+
+
+
+
+

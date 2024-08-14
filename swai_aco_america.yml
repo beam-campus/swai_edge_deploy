@@ -1,0 +1,91 @@
+version: "3.5"
+
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  aco-canada:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-canada
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-canada"
+      - SWAI_EDGE_LAT=56.1304
+      - SWAI_EDGE_LON=-106.3468
+
+  aco-usa:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa"
+      - SWAI_EDGE_LAT=37.0902
+      - SWAI_EDGE_LON=-95.7129
+
+  aco-mexico:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-mexico
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-mexico"
+      - SWAI_EDGE_LAT=23.6345
+      - SWAI_EDGE_LON=-102.5528  
+
+  aco-brazil:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-brazil
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-brazil"
+      - SWAI_EDGE_LAT=-14.235
+      - SWAI_EDGE_LON=-51.9253
+
+
+  aco-argentina:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-argentina
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-argentina"
+      - SWAI_EDGE_LAT=-38.4161
+      - SWAI_EDGE_LON=-63.6167
+
+
+  aco-chile:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-chile
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-chile"
+      - SWAI_EDGE_LAT=-35.6751
+      - SWAI_EDGE_LON=-71.543
+
+
+  aco-peru:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-peru
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-peru"
+      - SWAI_EDGE_LAT=-9.19
+      - SWAI_EDGE_LON=-75.0152

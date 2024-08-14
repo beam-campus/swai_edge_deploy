@@ -1,0 +1,69 @@
+version: "3.5"
+
+networks:
+  
+  edge_net:
+    driver: bridge
+    name: edge_net
+
+
+services:
+
+  aco-west-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-west-europe
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-west-europe"
+      - SWAI_EDGE_LAT=48.8566
+      - SWAI_EDGE_LON=2.3522
+
+  aco-north-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-north-europe
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-north-europe"
+      - SWAI_EDGE_LAT=59.3293
+      - SWAI_EDGE_LON=18.0686
+
+  aco-east-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-east-europe
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-east-europe"
+      - SWAI_EDGE_LAT=50.4501
+      - SWAI_EDGE_LON=30.5234
+
+  aco-south-europe:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-south-europe
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-south-europe"
+      - SWAI_EDGE_LAT=41.9028
+      - SWAI_EDGE_LON=12.4964
+
+  aco-ukraine:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-ukraine
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-ukraine"
+      - SWAI_EDGE_LAT=48.3794
+      - SWAI_EDGE_LON=31.1656
+
+  
+
+
