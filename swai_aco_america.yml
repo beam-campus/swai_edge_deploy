@@ -29,6 +29,89 @@ services:
       - SWAI_EDGE_LAT=37.0902
       - SWAI_EDGE_LON=-95.7129
 
+  aco-usa-california:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-california
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-california"
+      - SWAI_EDGE_LAT=36.7783
+      - SWAI_EDGE_LON=-119.4179
+
+  aco-usa-texas:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-texas
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-texas"
+      - SWAI_EDGE_LAT=31.9686
+      - SWAI_EDGE_LON=-99.9018
+
+  aco-usa-new-york:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-new-york
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-new-york"
+      - SWAI_EDGE_LAT=40.7128
+      - SWAI_EDGE_LON=-74.0060
+
+
+  aco-canada-ontario:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-canada-ontario
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-canada-ontario"
+      - SWAI_EDGE_LAT=51.2538
+      - SWAI_EDGE_LON=-85.3232
+  
+  aco-canada-quebec:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-canada-quebec
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-canada-quebec"
+      - SWAI_EDGE_LAT=52.9399
+      - SWAI_EDGE_LON=-73.5491
+
+  aco-usa-florida:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-florida
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-florida"
+      - SWAI_EDGE_LAT=27.9944
+      - SWAI_EDGE_LON=-81.7603    
+  
+  aco-usa-hawaii:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-hawaii
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-hawaii"
+      - SWAI_EDGE_LAT=20.7984
+      - SWAI_EDGE_LON=-156.3319        
+
+
+
+
+
+
   aco-mexico:
     image: beamcampus/swai_aco:latest
     container_name: aco-mexico

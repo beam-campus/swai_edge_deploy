@@ -131,6 +131,17 @@ services:
       - SWAI_EDGE_LAT=35.9078
       - SWAI_EDGE_LON=127.7669
 
+  aco-indonesia:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-indonesia
+    restart: always
+    networks:
+      - edge_net
+    environment:
+      - SWAI_EDGE_API_KEY="aco-indonesia"
+      - SWAI_EDGE_LAT=-0.7893
+      - SWAI_EDGE_LON=113.9213    
+
   aco-india:
     image: beamcampus/swai_aco:latest
     container_name: aco-india
@@ -142,8 +153,16 @@ services:
       - SWAI_EDGE_LAT=20.5937
       - SWAI_EDGE_LON=78.9629
 
-
-  
+  aco-saudi-arabia:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-saudi-arabia
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-saudi-arabia"
+      - SWAI_EDGE_LAT=23.8859
+      - SWAI_EDGE_LON=45.0792 
 
   aco-antarctica:
     image: beamcampus/swai_aco:latest
