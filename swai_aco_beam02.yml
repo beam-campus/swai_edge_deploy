@@ -84,16 +84,40 @@ services:
     - SWAI_EDGE_LAT=53.7098
     - SWAI_EDGE_LON=27.9534
 
-  aco-italy:
+  aco-argentina:
     image: beamcampus/swai_aco:latest
-    container_name: aco-italy
+    container_name: aco-argentina
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-argentina"
+      - SWAI_EDGE_LAT=-38.4161
+      - SWAI_EDGE_LON=-63.6167
+
+
+  aco-chile:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-chile
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-chile"
+      - SWAI_EDGE_LAT=-35.6751
+      - SWAI_EDGE_LON=-71.543
+
+  aco-italy-rome:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-italy-rome
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-italy"
-    - SWAI_EDGE_LAT=41.8719
-    - SWAI_EDGE_LON=12.5674
+    - SWAI_EDGE_API_KEY="aco-italy-rome"
+    - SWAI_EDGE_LAT=41.9028
+    - SWAI_EDGE_LON=12.4964
+    
 
   aco-france:
     image: beamcampus/swai_aco:latest

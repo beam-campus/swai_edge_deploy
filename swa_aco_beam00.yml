@@ -100,6 +100,31 @@ services:
     - SWAI_EDGE_LAT=38.7223
     - SWAI_EDGE_LON=9.1393
 
+  
+  aco-usa-new-york:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-usa-new-york
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-usa-new-york"
+      - SWAI_EDGE_LAT=40.7128
+      - SWAI_EDGE_LON=-74.0060
+
+
+  aco-canada-ontario:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-canada-ontario
+    restart: always
+    networks:
+      - edge_net
+    environment:      
+      - SWAI_EDGE_API_KEY="aco-canada-ontario"
+      - SWAI_EDGE_LAT=51.2538
+      - SWAI_EDGE_LON=-85.3232
+
+  
   aco-netherlands:
     image: beamcampus/swai_aco:latest
     container_name: aco-netherlands
@@ -112,13 +137,3 @@ services:
     - SWAI_EDGE_LON=5.2913
 
 
-  aco-east-africa:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-east-africa
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-east-africa"
-    - SWAI_EDGE_LAT=-1.2921
-    - SWAI_EDGE_LON=36.8219
