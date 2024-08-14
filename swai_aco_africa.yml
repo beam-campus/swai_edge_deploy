@@ -51,8 +51,3 @@ services:
       - SWAI_EDGE_API_KEY="aco-east-africa"
       - SWAI_EDGE_LAT=-1.2921
       - SWAI_EDGE_LON=36.8219
-
-
-
-
-
