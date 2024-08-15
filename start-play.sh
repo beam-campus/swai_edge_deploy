@@ -16,7 +16,9 @@ while true; do
     echo "Not enough containers to restart. At least 3 containers are required."
     exit 1
   fi
+
   num_to_restart=$(shuf -i 3-$num_containers -n 1)
+  num_to_restart=3
 
   echo "Number of containers to restart: $num_to_restart"
 
