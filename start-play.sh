@@ -28,15 +28,31 @@ while true; do
     container_name=$(docker inspect --format '{{.Name}}' "$random_container" | sed 's/^\/\|\/$//g')
 
     # Echo the container name before restarting
-    echo "Restarting container: $container_name ($random_container)"
+    echo "Stopping container: $container_name ($random_container)"
 
     sleep 5
 
     # Restart the selected container
-    docker restart "$random_container"
+    docker stop "$random_container"
 
     # Echo the container name after restarting
-    echo "Restarted container: $container_name ($random_container)"
+    echo "Stopped container: $container_name ($random_container)"
+  done
+
+  for random_container in "${selected_containers[@]}"; do
+    # Get the name of the selected container
+    container_name=$(docker inspect --format '{{.Name}}' "$random_container" | sed 's/^\/\|\/$//g')
+
+    # Echo the container name before restarting
+    echo "Starting container: $container_name ($random_container)"
+
+    sleep 5
+
+    # Restart the selected container
+    docker start "$random_container"
+
+    # Echo the container name after restarting
+    echo "Started container: $container_name ($random_container)"
   done
 
   # Sleep for a random time interval between 0 and 120 seconds
