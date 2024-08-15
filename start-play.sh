@@ -10,24 +10,37 @@ while true; do
     exit 1
   fi
 
-  # Select a random container ID
-  random_container=$(echo "${containers[@]}" | tr ' ' '\n' | shuf -n 1)
+  # Determine the number of containers to restart (between 3 and the total number of running containers)
+  num_containers=${#containers[@]}
+  if [ $num_containers -lt 3 ]; then
+    echo "Not enough containers to restart. At least 3 containers are required."
+    exit 1
+  fi
+  num_to_restart=$(shuf -i 3-$num_containers -n 1)
 
-  # Get the name of the selected container
-  container_name=$(docker inspect --format '{{.Name}}' "$random_container" | sed 's/^\/\|\/$//g')
+  echo "Number of containers to restart: $num_to_restart"
 
-  # Echo the container name before restarting
-  echo "Restarting container: $container_name ($random_container)"
+  # Shuffle the container list and select the first num_to_restart containers
+  selected_containers=($(echo "${containers[@]}" | tr ' ' '\n' | shuf -n $num_to_restart))
 
-  sleep 5
+  for random_container in "${selected_containers[@]}"; do
+    # Get the name of the selected container
+    container_name=$(docker inspect --format '{{.Name}}' "$random_container" | sed 's/^\/\|\/$//g')
 
-  # Restart the selected container
-  docker restart "$random_container"
+    # Echo the container name before restarting
+    echo "Restarting container: $container_name ($random_container)"
 
-  # Echo the container name after restarting
-  echo "Restarted container: $container_name ($random_container)"
+    sleep 5
+
+    # Restart the selected container
+    docker restart "$random_container"
+
+    # Echo the container name after restarting
+    echo "Restarted container: $container_name ($random_container)"
+  done
 
   # Sleep for a random time interval between 0 and 120 seconds
   sleep_time=$(shuf -i 0-120 -n 1)
+  echo "Sleeping for $sleep_time seconds before the next restart cycle."
   sleep "$sleep_time"
 done
