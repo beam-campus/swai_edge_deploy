@@ -17,17 +17,22 @@ services:
       - SWAI_EDGE_API_KEY="aco-canada"
       - SWAI_EDGE_LAT=56.1304
       - SWAI_EDGE_LON=-106.3468
+      - SWAI_EDGE_COUNTRY="Canada"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
-  aco-usa:
+  aco-usa-manchester:
     image: beamcampus/swai_aco:latest
-    container_name: aco-usa
+    container_name: aco-usa-manchester
     restart: always
     networks:
       - edge_net
     environment:      
-      - SWAI_EDGE_API_KEY="aco-usa"
-      - SWAI_EDGE_LAT=37.0902
-      - SWAI_EDGE_LON=-95.7129
+      - SWAI_EDGE_API_KEY="aco-usa-manchester"
+      - SWAI_EDGE_LAT=42.9956
+      - SWAI_EDGE_LON=-71.4548
+      - SWAI_EDGE_COUNTRY="USA"
+      - SWAI_EDGE_IS_CONTAINER="true"
+
 
   aco-canada-quebec:
     image: beamcampus/swai_aco:latest
@@ -39,18 +44,21 @@ services:
       - SWAI_EDGE_API_KEY="aco-canada-quebec"
       - SWAI_EDGE_LAT=52.9399
       - SWAI_EDGE_LON=-73.5491
+      - SWAI_EDGE_COUNTRY="Canada"
+      - SWAI_EDGE_IS_CONTAINER="true"
 
-  aco-east-africa:
+  aco-uae-dubai:
     image: beamcampus/swai_aco:latest
-    container_name: aco-east-africa
+    container_name: aco-uae-dubai
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-east-africa"
-    - SWAI_EDGE_LAT=-1.2921
-    - SWAI_EDGE_LON=36.8219
-    
+    - SWAI_EDGE_API_KEY="aco-dubai"
+    - SWAI_EDGE_LAT=25.276987
+    - SWAI_EDGE_LON=55.296249
+    - SWAI_EDGE_COUNTRY="UAE"
+    - SWAI_EDGE_IS_CONTAINER="true"    
   
   aco-usa-hawaii:
     image: beamcampus/swai_aco:latest
@@ -62,6 +70,8 @@ services:
       - SWAI_EDGE_API_KEY="aco-usa-hawaii"
       - SWAI_EDGE_LAT=20.7984
       - SWAI_EDGE_LON=-156.3319
+      - SWAI_EDGE_COUNTRY="USA"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
 
   aco-south-africa:
@@ -74,30 +84,36 @@ services:
     - SWAI_EDGE_API_KEY="swai-aco-south-africa"
     - SWAI_EDGE_LAT=-30.5595
     - SWAI_EDGE_LON=22.9375
+    - SWAI_EDGE_COUNTRY="South Africa"
+    - SWAI_EDGE_IS_CONTAINER="true"
 
-  aco-north-africa:
+  aco-algeria:
     image: beamcampus/swai_aco:latest
-    container_name: aco-north-africa
+    container_name: aco-algeria
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-north-africa"
-    - SWAI_EDGE_LAT=26.3351
-    - SWAI_EDGE_LON=17.2283
+    - SWAI_EDGE_API_KEY="aco-algeria"
+    - SWAI_EDGE_LAT=28.0339
+    - SWAI_EDGE_LON=1.6596
+    - SWAI_EDGE_COUNTRY="Algeria"
+    - SWAI_EDGE_IS_CONTAINER="false"
 
-  aco-west-africa:
+
+  aco-nigeria:
     image: beamcampus/swai_aco:latest
-    container_name: aco-west-africa
+    container_name: aco-nigeria
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-west-africa"
+    - SWAI_EDGE_API_KEY="aco-nigeria"
     - SWAI_EDGE_LAT=9.082
     - SWAI_EDGE_LON=8.6753
-
-
+    - SWAI_EDGE_COUNTRY="Nigeria"
+    - SWAI_EDGE_IS_CONTAINER="false"
+    
 
   aco-peru:
     image: beamcampus/swai_aco:latest
@@ -109,3 +125,5 @@ services:
       - SWAI_EDGE_API_KEY="aco-peru"
       - SWAI_EDGE_LAT=-9.19
       - SWAI_EDGE_LON=-75.0152
+      - SWAI_EDGE_COUNTRY="Peru"
+      - SWAI_EDGE_IS_CONTAINER="true"

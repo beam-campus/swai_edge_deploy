@@ -151,7 +151,9 @@ services:
     environment:      
       - SWAI_EDGE_API_KEY="aco-mexico"
       - SWAI_EDGE_LAT=23.6345
-      - SWAI_EDGE_LON=-102.5528  
+      - SWAI_EDGE_LON=-102.5528
+      - SWAI_EDGE_COUNTRY="Mexico"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
   aco-brazil:
     image: beamcampus/swai_aco:latest
@@ -163,6 +165,8 @@ services:
       - SWAI_EDGE_API_KEY="aco-brazil"
       - SWAI_EDGE_LAT=-14.235
       - SWAI_EDGE_LON=-51.9253
+      - SWAI_EDGE_COUNTRY="Brazil"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
 
   aco-usa-florida:
@@ -174,7 +178,10 @@ services:
     environment:      
       - SWAI_EDGE_API_KEY="aco-usa-florida"
       - SWAI_EDGE_LAT=27.9944
-      - SWAI_EDGE_LON=-81.7603    
+      - SWAI_EDGE_LON=-81.7603
+      - SWAI_EDGE_COUNTRY="USA"
+      - SWAI_EDGE_IS_CONTAINER="true"
+
 
   
   aco-congo:
@@ -187,6 +194,8 @@ services:
     - SWAI_EDGE_API_KEY="aco-congo"
     - SWAI_EDGE_LAT=-4.0383
     - SWAI_EDGE_LON=21.7587
+    - SWAI_EDGE_COUNTRY="Congo"
+    - SWAI_EDGE_IS_CONTAINER="true"
 
   aco-madagascar:
     image: beamcampus/swai_aco:latest
@@ -198,6 +207,8 @@ services:
     - SWAI_EDGE_API_KEY="aco-madagascar"
     - SWAI_EDGE_LAT=-18.7669
     - SWAI_EDGE_LON=46.8691
+    - SWAI_EDGE_COUNTRY="Madagascar"
+    - SWAI_EDGE_IS_CONTAINER="false"
   
   aco-india:
     image: beamcampus/swai_aco:latest
@@ -209,6 +220,8 @@ services:
       - SWAI_EDGE_API_KEY="aco-india"
       - SWAI_EDGE_LAT=20.5937
       - SWAI_EDGE_LON=78.9629
+      - SWAI_EDGE_COUNTRY="India"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
   aco-saudi-arabia:
     image: beamcampus/swai_aco:latest
@@ -220,16 +233,8 @@ services:
       - SWAI_EDGE_API_KEY="aco-saudi-arabia"
       - SWAI_EDGE_LAT=23.8859
       - SWAI_EDGE_LON=45.0792 
+      - SWAI_EDGE_COUNTRY="Saudi Arabia"
+      - SWAI_EDGE_IS_CONTAINER="false"
 
-  aco-antarctica:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-antarctica
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-antarctica"
-      - SWAI_EDGE_LAT=-82.8628
-      - SWAI_EDGE_LON=135
 
 

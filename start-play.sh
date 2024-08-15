@@ -30,7 +30,7 @@ while true; do
     # Echo the container name before restarting
     echo "Stopping container: $container_name ($random_container)"
 
-    sleep 5
+    sleep 30
 
     # Restart the selected container
     docker stop "$random_container"
@@ -46,7 +46,7 @@ while true; do
     # Echo the container name before restarting
     echo "Starting container: $container_name ($random_container)"
 
-    sleep 5
+    sleep 30
 
     # Restart the selected container
     docker start "$random_container"
@@ -56,7 +56,7 @@ while true; do
   done
 
   # Sleep for a random time interval between 0 and 120 seconds
-  sleep_time=$(shuf -i 0-120 -n 1)
+  sleep_time=$(shuf -i 0-480 -n 1)
   echo "Sleeping for $sleep_time seconds before the next restart cycle."
   sleep "$sleep_time"
 done
