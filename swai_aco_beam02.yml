@@ -18,16 +18,17 @@ services:
     - SWAI_EDGE_LAT=50.4501
     - SWAI_EDGE_LON=30.5234
 
-  aco-south-europe:
+
+  aco-greece:
     image: beamcampus/swai_aco:latest
-    container_name: aco-south-europe
+    container_name: aco-greece
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-south-europe"
-    - SWAI_EDGE_LAT=41.9028
-    - SWAI_EDGE_LON=12.4964
+    - SWAI_EDGE_API_KEY="aco-greece"
+    - SWAI_EDGE_LAT=39.0742
+    - SWAI_EDGE_LON=21.8243
 
   aco-ukraine:
     image: beamcampus/swai_aco:latest
