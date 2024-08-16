@@ -1,5 +1,5 @@
 networks:
-  
+
   edge_net:
     driver: bridge
     name: edge_net
@@ -7,117 +7,44 @@ networks:
 
 services:
 
-  aco-near-east:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-russia
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-russia"
-      - SWAI_EDGE_LAT=61.524
-      - SWAI_EDGE_LON=105.3188
-
-  aco-central-asia:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-central-asia
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-central-asia"
-      - SWAI_EDGE_LAT=48.0196
-      - SWAI_EDGE_LON=66.9237
-
-
-  aco-south-asia:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-south-asia
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-south-asia"
-      - SWAI_EDGE_LAT=23.684994
-      - SWAI_EDGE_LON=86.9853
-
-  aco-southeast-asia:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-southeast-asia
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-southeast-asia"
-      - SWAI_EDGE_LAT=1.3521
-      - SWAI_EDGE_LON=103.8198
-
-  aco-east-asia:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-east-asia
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-east-asia"
-      - SWAI_EDGE_LAT=35.8617
-      - SWAI_EDGE_LON=104.1954
-
   aco-australia:
     image: beamcampus/swai_aco:latest
     container_name: aco-australia
     restart: always
     networks:
-      - edge_net
+    - edge_net
     environment:
-      - SWAI_EDGE_API_KEY="aco-australia"
-      - SWAI_EDGE_LAT=-25.2744
-      - SWAI_EDGE_LON=133.7751
+    - SWAI_EDGE_API_KEY="aco-australia"
+    - SWAI_EDGE_LAT=-25.2744
+    - SWAI_EDGE_LON=133.7751
+    - SWAI_EDGE_COUNTRY="Australia"
+    - SWAI_EDGE_IS_CONTAINER=0
 
   aco-new-zealand:
     image: beamcampus/swai_aco:latest
     container_name: aco-new-zealand
     restart: always
     networks:
-      - edge_net
+    - edge_net
     environment:
-      - SWAI_EDGE_API_KEY="aco-new-zealand"
-      - SWAI_EDGE_LAT=-40.9006
-      - SWAI_EDGE_LON=174.885971
+    - SWAI_EDGE_API_KEY="aco-new-zealand"
+    - SWAI_EDGE_LAT=-40.9006
+    - SWAI_EDGE_LON=174.885971
+    - SWAI_EDGE_COUNTRY="New Zealand"
+    - SWAI_EDGE_IS_CONTAINER=0
 
-  aco-pacific-islands:
+  aco-guam:
     image: beamcampus/swai_aco:latest
-    container_name: aco-pacific-islands
+    container_name: aco-guam
     restart: always
     networks:
-      - edge_net
+    - edge_net
     environment:
-      - SWAI_EDGE_API_KEY="aco-pacific-islands"
-      - SWAI_EDGE_LAT=-8.874217
-      - SWAI_EDGE_LON=160.156194
-      
-
-  aco-china:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-china
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-china"
-      - SWAI_EDGE_LAT=35.8617
-      - SWAI_EDGE_LON=104.1954
-
-  aco-japan:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-japan
-    restart: always
-    networks:
-      - edge_net
-    environment:
-      - SWAI_EDGE_API_KEY="aco-japan"
-      - SWAI_EDGE_LAT=36.2048
-      - SWAI_EDGE_LON=138.2529
+    - SWAI_EDGE_API_KEY="aco-guam"
+    - SWAI_EDGE_LAT=13.4443
+    - SWAI_EDGE_LON=144.7937
+    - SWAI_EDGE_COUNTRY="Guam"
+    - SWAI_EDGE_IS_CONTAINER=0
 
 
   aco-korea:
@@ -125,48 +52,64 @@ services:
     container_name: aco-korea
     restart: always
     networks:
-      - edge_net
+    - edge_net
     environment:
-      - SWAI_EDGE_API_KEY="aco-korea"
-      - SWAI_EDGE_LAT=35.9078
-      - SWAI_EDGE_LON=127.7669
+    - SWAI_EDGE_API_KEY="aco-korea"
+    - SWAI_EDGE_LAT=35.9078
+    - SWAI_EDGE_LON=127.7669
 
-  aco-indonesia:
+  aco-vietnam-saigon:
     image: beamcampus/swai_aco:latest
-    container_name: aco-indonesia
+    container_name: aco-vietnam-saigon
     restart: always
     networks:
-      - edge_net
+    - edge_net
     environment:
-      - SWAI_EDGE_API_KEY="aco-indonesia"
-      - SWAI_EDGE_LAT=-0.7893
-      - SWAI_EDGE_LON=113.9213    
+    - SWAI_EDGE_API_KEY="aco-vietnam-saigon"
+    - SWAI_EDGE_LAT=10.762622
+    - SWAI_EDGE_LON=106.660172
+    - SWAI_EDGE_COUNTRY="Vietnam"
+    - SWAI_EDGE_IS_CONTAINER=0
+
+
+  aco-indonesia-bali:
+    image: beamcampus/swai_aco:latest
+    container_name: aco-indonesia-bali
+    restart: always
+    networks:
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-indonesia-bali"
+    - SWAI_EDGE_LAT=-8.3405
+    - SWAI_EDGE_LON=115.0920
+    - SWAI_EDGE_COUNTRY="Indonesia"
+    - SWAI_EDGE_IS_CONTAINER=0
 
   aco-mexico:
     image: beamcampus/swai_aco:latest
     container_name: aco-mexico
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-mexico"
-      - SWAI_EDGE_LAT=23.6345
-      - SWAI_EDGE_LON=-102.5528
-      - SWAI_EDGE_COUNTRY="Mexico"
-      - SWAI_EDGE_IS_CONTAINER="false"
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-mexico"
+    - SWAI_EDGE_LAT=23.6345
+    - SWAI_EDGE_LON=-102.5528
+    - SWAI_EDGE_COUNTRY="Mexico"
+    - SWAI_EDGE_IS_CONTAINER=1
 
-  aco-brazil:
+  aco-brazil-rio:
     image: beamcampus/swai_aco:latest
-    container_name: aco-brazil
+    container_name: aco-brazil-rio
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-brazil"
-      - SWAI_EDGE_LAT=-14.235
-      - SWAI_EDGE_LON=-51.9253
-      - SWAI_EDGE_COUNTRY="Brazil"
-      - SWAI_EDGE_IS_CONTAINER="false"
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-brazil-rio"
+    - SWAI_EDGE_LAT=-22.9068
+    - SWAI_EDGE_LON=-43.1729
+    - SWAI_EDGE_COUNTRY="Brazil"
+    - SWAI_EDGE_IS_CONTAINER=1
 
 
   aco-usa-florida:
@@ -174,28 +117,14 @@ services:
     container_name: aco-usa-florida
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-usa-florida"
-      - SWAI_EDGE_LAT=27.9944
-      - SWAI_EDGE_LON=-81.7603
-      - SWAI_EDGE_COUNTRY="USA"
-      - SWAI_EDGE_IS_CONTAINER="true"
-
-
-  
-  aco-congo:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-congo
-    restart: always
-    networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-congo"
-    - SWAI_EDGE_LAT=-4.0383
-    - SWAI_EDGE_LON=21.7587
-    - SWAI_EDGE_COUNTRY="Congo"
+    - SWAI_EDGE_API_KEY="aco-usa-florida"
+    - SWAI_EDGE_LAT=27.9944
+    - SWAI_EDGE_LON=-81.7603
+    - SWAI_EDGE_COUNTRY="USA"
     - SWAI_EDGE_IS_CONTAINER="true"
+
 
   aco-madagascar:
     image: beamcampus/swai_aco:latest
@@ -209,32 +138,32 @@ services:
     - SWAI_EDGE_LON=46.8691
     - SWAI_EDGE_COUNTRY="Madagascar"
     - SWAI_EDGE_IS_CONTAINER="false"
-  
-  aco-india:
+
+  aco-india-delhi:
     image: beamcampus/swai_aco:latest
-    container_name: aco-india
+    container_name: aco-india-delhi
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-india"
-      - SWAI_EDGE_LAT=20.5937
-      - SWAI_EDGE_LON=78.9629
-      - SWAI_EDGE_COUNTRY="India"
-      - SWAI_EDGE_IS_CONTAINER="false"
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-india-delhi"
+    - SWAI_EDGE_LAT=28.7041
+    - SWAI_EDGE_LON=77.1025
+    - SWAI_EDGE_COUNTRY="India"
+    - SWAI_EDGE_IS_CONTAINER="false"
 
   aco-saudi-arabia:
     image: beamcampus/swai_aco:latest
     container_name: aco-saudi-arabia
     restart: always
     networks:
-      - edge_net
-    environment:      
-      - SWAI_EDGE_API_KEY="aco-saudi-arabia"
-      - SWAI_EDGE_LAT=23.8859
-      - SWAI_EDGE_LON=45.0792 
-      - SWAI_EDGE_COUNTRY="Saudi Arabia"
-      - SWAI_EDGE_IS_CONTAINER="false"
+    - edge_net
+    environment:
+    - SWAI_EDGE_API_KEY="aco-saudi-arabia"
+    - SWAI_EDGE_LAT=23.8859
+    - SWAI_EDGE_LON=45.0792
+    - SWAI_EDGE_COUNTRY="Saudi Arabia"
+    - SWAI_EDGE_IS_CONTAINER="false"
 
 
 

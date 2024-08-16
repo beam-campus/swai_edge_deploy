@@ -18,7 +18,8 @@ while true; do
   fi
 
   num_to_restart=$(shuf -i 3-$num_containers -n 1)
-  num_to_restart=3
+
+  # num_to_restart=3
 
   echo "Number of containers to restart: $num_to_restart"
 
@@ -58,7 +59,7 @@ while true; do
   done
 
   # Sleep for a random time interval between 0 and 120 seconds
-  sleep_time=$(shuf -i 0-480 -n 1)
+  sleep_time=$(shuf -i 0-120 -n 1)
   echo "Sleeping for $sleep_time seconds before the next restart cycle."
   sleep "$sleep_time"
 done
