@@ -20,138 +20,33 @@ services:
     - SWAI_EDGE_LON=116.4074
     - SWAI_EDGE_COUNTRY="China"
     - SWAI_EDGE_IS_CONTAINER=0
-
-  aco-japan:
+    - SWAI_EDGE_SCAPES_CAP=6
+    
+  aco-egypt-cairo:
     image: beamcampus/swai_aco:latest
-    container_name: aco-japan
+    container_name: aco-egypt-cairo
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-japan"
-    - SWAI_EDGE_LAT=36.2048
-    - SWAI_EDGE_LON=138.2529
-    - SWAI_EDGE_COUNTRY="Japan"
-
-
-  aco-turkey-istanbul:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-turkey-istanbul
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-turkey-istanbul"
-    - SWAI_EDGE_LAT=41.0082
-    - SWAI_EDGE_LON=28.9784
-    - SWAI_EDGE_COUNTRY="Turkey"
-
-
-  aco-israel-tel-aviv:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-israel-tel-aviv
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-israel-tel-aviv"
-    - SWAI_EDGE_LAT=32.0853
-    - SWAI_EDGE_LON=34.7818
-    - SWAI_EDGE_COUNTRY="Israel"
+    - SWAI_EDGE_API_KEY="aco-egypt-cairo"
+    - SWAI_EDGE_LAT=30.0444
+    - SWAI_EDGE_LON=31.2357
+    - SWAI_EDGE_COUNTRY="Egypt"
     - SWAI_EDGE_IS_CONTAINER=0
+    - SWAI_EDGE_SCAPES_CAP=7
 
-  aco-iceland:
+  aco-germany-berlin:
     image: beamcampus/swai_aco:latest
-    container_name: aco-iceland
+    container_name: aco-germany-berlin
     restart: always
     networks:
     - edge_net
     environment:
-    - SWAI_EDGE_API_KEY="aco-iceland"
-    - SWAI_EDGE_LAT=64.9631
-    - SWAI_EDGE_LON=-19.0208
-    - SWAI_EDGE_COUNTRY="Iceland"
-
-
-  aco-poland:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-poland
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-poland"
-    - SWAI_EDGE_LAT=51.9194
-    - SWAI_EDGE_LON=19.1451
-    - SWAI_EDGE_COUNTRY="Poland"
-    - SWAI_EDGE_IS_CONTAINER="false"
-
-  aco-spain-barcelona:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-spain-barcelona
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-spain"
-    - SWAI_EDGE_LAT=40.4637
-    - SWAI_EDGE_LON=3.7492
-    - SWAI_EDGE_COUNTRY="Spain"
-    - SWAI_EDGE_IS_CONTAINER="true"
-
-  aco-portugal-lisbon:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-portugal-lisbon
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-portugal-lisbon"
-    - SWAI_EDGE_LAT=38.7223
-    - SWAI_EDGE_LON=9.1393
-    - SWAI_EDGE_COUNTRY="Portugal"
+    - SWAI_EDGE_API_KEY="aco-germany-berlin"
+    - SWAI_EDGE_LAT=52.5200
+    - SWAI_EDGE_LON=13.4050
+    - SWAI_EDGE_COUNTRY="Germany"
     - SWAI_EDGE_IS_CONTAINER=0
-
-
-  aco-usa-new-york:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-usa-new-york
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-usa-new-york"
-    - SWAI_EDGE_LAT=40.7128
-    - SWAI_EDGE_LON=-74.0060
-    - SWAI_EDGE_COUNTRY="USA"
-
-
-
-  aco-canada-ontario:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-canada-ontario
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-canada-ontario"
-    - SWAI_EDGE_LAT=51.2538
-    - SWAI_EDGE_LON=-85.3232
-    - SWAI_EDGE_COUNTRY="Canada"
-    - SWAI_EDGE_IS_CONTAINER=0
-
-
-  aco-netherlands:
-    image: beamcampus/swai_aco:latest
-    container_name: aco-netherlands
-    restart: always
-    networks:
-    - edge_net
-    environment:
-    - SWAI_EDGE_API_KEY="aco-netherlands"
-    - SWAI_EDGE_LAT=52.1326
-    - SWAI_EDGE_LON=5.2913
-    - SWAI_EDGE_COUNTRY="Netherlands"
-    - SWAI_EDGE_IS_CONTAINER=0
-
+    - SWAI_EDGE_SCAPES_CAP=3 
 
